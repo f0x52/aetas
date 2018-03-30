@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import '../style.css';
 var create = require('create-react-class');
 
+
 var App = create({
   render: function() {
     return (
@@ -36,9 +37,9 @@ var Clocks = create({
   render: function() {
     return (
       <div className="clocks">
-        <Clock date={this.state.date}/>
-        <Clock date={this.state.date} offset="-4"/>
-        <Clock date={this.state.date} offset="local"/>
+        <Clock legend="UTC" date={this.state.date}/>
+        <Clock legend="Carribean Time" date={this.state.date} offset="-4"/>
+        <Clock legend="Local" date={this.state.date} offset="local"/>
       </div>
     );
   }
@@ -60,22 +61,48 @@ var Clock = create({
     let time = utc(date, this.state.offset);
     return (
       <div className="clock">
-        <div className="digital">{pad(time[0])}:{pad(time[1])}:{pad(time[2])}</div>
-        <AnalogClock time={time} />
+        <AnalogClock time={time} size={document.getElementsByTagName('body')[0].clientWidth/3-50} />
+        <div className="digital">{pad(time[0])}:{pad(time[1])}</div>
+        <div className="legend">{this.props.legend}</div>
       </div>
     );
   }
 })
 
 var AnalogClock = create({
-  componentDidMount: function() {
-    const ctx = this.refs.canvas.getContext('2d');
-    ctx.fillRect(0,0, 300, 300);
-  },
-
   render: function() {
+    let time = this.props.time;
+    let size = this.props.size;
+    let half = size/2;
+
+    let hour_x = half-8 + Math.cos((time[0]-3 + (time[1]/60))/6*Math.PI) * (half*0.5);
+    let hour_y = half-8 + Math.sin((time[0]-3 + (time[1]/60))/6*Math.PI) * (half*0.5);
+
+    let min_x = half-6 + Math.cos((time[1]-15 + (time[2]/60))/30*Math.PI) * (half*0.7);
+    let min_y = half-6 + Math.sin((time[1]-15 + (time[2]/60))/30*Math.PI) * (half*0.7);
+
+    let sec_x = half-4 + Math.cos((time[2]-15)/30*Math.PI) * (half*0.85);
+    let sec_y = half-4 + Math.sin((time[2]-15)/30*Math.PI) * (half*0.85);
+
     return (
-      <canvas ref="canvas" width={300} height={300} />
+      <svg className="analog" height={size} width={size}>
+        <line x1={half} y1={half} x2={hour_x} y2={hour_y}
+          stroke="black" strokeWidth="16" />
+        <circle cx={hour_x} cy={hour_y}
+          r={7} stroke="black" fill="black" />
+
+        <line x1={half} y1={half} x2={min_x} y2={min_y}
+          stroke="black" strokeWidth="12" />
+        <circle cx={min_x} cy={min_y}
+          r={5} stroke="black" fill="black" />
+
+        <line x1={half} y1={half} x2={sec_x} y2={sec_y}
+          stroke="red" strokeWidth="8" />
+        <circle cx={sec_x} cy={sec_y}
+          r={3} stroke="red" fill="red" />
+
+        <circle cx={half} cy={half} r={16} stroke="black" fill="black" />
+      </svg>
     );
   }
 })
