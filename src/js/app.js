@@ -75,33 +75,33 @@ var AnalogClock = create({
     let size = this.props.size;
     let half = size/2;
 
-    let hour_x = half-8 + Math.cos((time[0]-3 + (time[1]/60))/6*Math.PI) * (half*0.5);
-    let hour_y = half-8 + Math.sin((time[0]-3 + (time[1]/60))/6*Math.PI) * (half*0.5);
+    let hour_x = half + Math.cos((time[0]-3 + (time[1]/60))/6*Math.PI) * (half*0.5);
+    let hour_y = half + Math.sin((time[0]-3 + (time[1]/60))/6*Math.PI) * (half*0.5);
 
-    let min_x = half-6 + Math.cos((time[1]-15 + (time[2]/60))/30*Math.PI) * (half*0.7);
-    let min_y = half-6 + Math.sin((time[1]-15 + (time[2]/60))/30*Math.PI) * (half*0.7);
+    let min_x = half + Math.cos((time[1]-15 + (time[2]/60))/30*Math.PI) * (half*0.7);
+    let min_y = half + Math.sin((time[1]-15 + (time[2]/60))/30*Math.PI) * (half*0.7);
 
-    let sec_x = half-4 + Math.cos((time[2]-15)/30*Math.PI) * (half*0.85);
-    let sec_y = half-4 + Math.sin((time[2]-15)/30*Math.PI) * (half*0.85);
+    let sec_x = half + Math.cos((time[2]-15)/30*Math.PI) * (half*0.75);
+    let sec_y = half + Math.sin((time[2]-15)/30*Math.PI) * (half*0.75);
 
     return (
       <svg className="analog" height={size} width={size}>
         <line x1={half} y1={half} x2={hour_x} y2={hour_y}
-          stroke="black" strokeWidth="16" />
+          stroke="black" strokeWidth="14" />
         <circle cx={hour_x} cy={hour_y}
-          r={7} stroke="black" fill="black" />
+          r={6} stroke="black" fill="black" />
 
         <line x1={half} y1={half} x2={min_x} y2={min_y}
-          stroke="black" strokeWidth="12" />
+          stroke="black" strokeWidth="10" />
         <circle cx={min_x} cy={min_y}
-          r={5} stroke="black" fill="black" />
+          r={4} stroke="black" fill="black" />
 
         <line x1={half} y1={half} x2={sec_x} y2={sec_y}
-          stroke="red" strokeWidth="8" />
+          stroke="red" strokeWidth="4" />
         <circle cx={sec_x} cy={sec_y}
-          r={3} stroke="red" fill="red" />
+          r={1.5} stroke="red" fill="red" />
 
-        <circle cx={half} cy={half} r={16} stroke="black" fill="black" />
+        <circle cx={half} cy={half} r={12} stroke="black" fill="black" />
       </svg>
     );
   }
