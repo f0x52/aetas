@@ -1,11 +1,11 @@
 html {
-  background-color: #eaeaec;
-  color: #1a1a1a;
+  background-color: black;
+  color: white;
 }
 
 body {
   margin: 0;
-  margin-top: calc((100vh - (100vw/3 + 6.5vw))/2);
+  margin-top: calc((100vh - (100vw/3 + 6.5vw))/3);
   margin-left: 25px;
   margin-right: 25px;
 }
@@ -17,12 +17,14 @@ body {
 
 .legend {
   text-align: center;
-  font-size: 1.5vw;
+  font-size: 4vw;
+  margin-bottom: calc((100vh - (100vw/3 + 6.5vw))/6);
 }
 
 .digital {
   width: calc(100vw/3-50);
   font-size: 5vw;
+  margin-top: 1vh;
   text-align: center;
 }
 
