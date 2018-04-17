@@ -75,8 +75,8 @@ var AnalogClock = create({
     let size = this.props.size;
     let half = size/2;
 
-    let hour_x = half + Math.cos((time[0]-3 + (time[1]/60))/6*Math.PI) * (half*0.5);
-    let hour_y = half + Math.sin((time[0]-3 + (time[1]/60))/6*Math.PI) * (half*0.5);
+    let hour_x = half + Math.cos((time[0]-3 + (time[1]/60))/6*Math.PI) * (half*0.35);
+    let hour_y = half + Math.sin((time[0]-3 + (time[1]/60))/6*Math.PI) * (half*0.35);
 
     let hour_x_contra = half + Math.cos((time[0]-3 + (time[1]/60))/6*Math.PI - Math.PI) * (half*0.2);
     let hour_y_contra = half + Math.sin((time[0]-3 + (time[1]/60))/6*Math.PI - Math.PI) * (half*0.2);
