@@ -78,25 +78,42 @@ var AnalogClock = create({
     let hour_x = half + Math.cos((time[0]-3 + (time[1]/60))/6*Math.PI) * (half*0.5);
     let hour_y = half + Math.sin((time[0]-3 + (time[1]/60))/6*Math.PI) * (half*0.5);
 
+    let hour_x_contra = half + Math.cos((time[0]-3 + (time[1]/60))/6*Math.PI - Math.PI) * (half*0.2);
+    let hour_y_contra = half + Math.sin((time[0]-3 + (time[1]/60))/6*Math.PI - Math.PI) * (half*0.2);
+
+
     let min_x = half + Math.cos((time[1]-15 + (time[2]/60))/30*Math.PI) * (half*0.7);
     let min_y = half + Math.sin((time[1]-15 + (time[2]/60))/30*Math.PI) * (half*0.7);
+
+    let min_x_contra = half + Math.cos((time[1]-15 + (time[2]/60))/30*Math.PI - Math.PI) * (half*0.15);
+    let min_y_contra = half + Math.sin((time[1]-15 + (time[2]/60))/30*Math.PI - Math.PI) * (half*0.15);
+
 
     let sec_x = half + Math.cos((time[2]-15)/30*Math.PI) * (half*0.75);
     let sec_y = half + Math.sin((time[2]-15)/30*Math.PI) * (half*0.75);
 
+    let sec_x_contra = half + Math.cos((time[2]-15)/30*Math.PI - Math.PI) * (half*0.1);
+    let sec_y_contra = half + Math.sin((time[2]-15)/30*Math.PI - Math.PI) * (half*0.1);
+
     return (
       <svg className="analog" height={size} width={size}>
         <line x1={half} y1={half} x2={hour_x} y2={hour_y}
-          stroke="black" strokeWidth="14" />
+          stroke="black" strokeWidth="11" />
+        <line x1={half} y1={half} x2={hour_x_contra} y2={hour_y_contra}
+          stroke="black" strokeWidth="10" />
         <circle cx={hour_x} cy={hour_y}
-          r={6} stroke="black" fill="black" />
+          r={4} stroke="black" fill="black" />
 
         <line x1={half} y1={half} x2={min_x} y2={min_y}
+          stroke="black" strokeWidth="10" />
+        <line x1={half} y1={half} x2={min_x_contra} y2={min_y_contra}
           stroke="black" strokeWidth="10" />
         <circle cx={min_x} cy={min_y}
           r={4} stroke="black" fill="black" />
 
         <line x1={half} y1={half} x2={sec_x} y2={sec_y}
+          stroke="red" strokeWidth="4" />
+        <line x1={half} y1={half} x2={sec_x_contra} y2={sec_y_contra}
           stroke="red" strokeWidth="4" />
         <circle cx={sec_x} cy={sec_y}
           r={1.5} stroke="red" fill="red" />
