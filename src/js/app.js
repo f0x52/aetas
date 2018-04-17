@@ -38,7 +38,7 @@ var Clocks = create({
     return (
       <div className="clocks">
         <Clock legend="UTC" date={this.state.date}/>
-        <Clock legend="Caribbean Time" date={this.state.date} offset="-4"/>
+        <Clock legend="Caribbean" date={this.state.date} offset="-4"/>
         <Clock legend="Local" date={this.state.date} offset="local"/>
       </div>
     );
