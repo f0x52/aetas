@@ -63,7 +63,7 @@ var Clock = create({
       <div className="clock">
         <div className="legend">{this.props.legend}</div>
         <AnalogClock time={time} size={document.getElementsByTagName('body')[0].clientWidth/3-50} />
-        <div className="digital">{pad(time[0])}:{pad(time[1])}</div>
+        <div className="digital">{pad(time[0])}<span className="gray">:{pad(time[1])}</span></div>
       </div>
     );
   }

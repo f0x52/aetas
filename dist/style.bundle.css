@@ -28,6 +28,10 @@ body {
   text-align: center;
 }
 
+.gray {
+  color: #999;
+}
+
 .analog {
   background: url(fa1eda85a8415517209b42a7fb96fed2.svg);
   background-size: cover;

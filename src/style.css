@@ -28,6 +28,10 @@ body {
   text-align: center;
 }
 
+.gray {
+  color: #999;
+}
+
 .analog {
   background: url("assets/face.svg");
   background-size: cover;
