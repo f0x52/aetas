@@ -29,22 +29,22 @@ body {
 }
 
 .analog {
-  background: url(fa1eda85a8415517209b42a7fb96fed2.svg);
+  background: url(face.svg);
   background-size: cover;
 }
 
 .Local {
-  background: url(33c74f96c724c271bdd53d56853806dd.svg);
+  background: url(face-local.svg);
   background-size: cover;
 }
 
 .Caribbean {
-  background: url(9afb5af65a86ddcad379db231f698032.svg);
+  background: url(face-caribbean.svg);
   background-size: cover;
 }
 
 .UTC {
-  background: url(1f52e4dae78418f336ec9da86ae058af.svg);
+  background: url(face-utc.svg);
   background-size: cover;
 }
 
