@@ -28,11 +28,23 @@ body {
   text-align: center;
 }
 
-.gray {
-  color: #999;
-}
-
 .analog {
   background: url(fa1eda85a8415517209b42a7fb96fed2.svg);
   background-size: cover;
 }
+
+.Local {
+  background: url(33c74f96c724c271bdd53d56853806dd.svg);
+  background-size: cover;
+}
+
+.Caribbean {
+  background: url(9afb5af65a86ddcad379db231f698032.svg);
+  background-size: cover;
+}
+
+.UTC {
+  background: url(080e4c0e49091e18b119cdba17e2e53e.svg);
+  background-size: cover;
+}
+
