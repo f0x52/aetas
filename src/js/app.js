@@ -62,7 +62,7 @@ var Clock = create({
     return (
       <div className="clock">
         <div className="legend">{this.props.legend}</div>
-        <AnalogClock time={time} size={document.getElementsByTagName('body')[0].clientWidth/3-50} />
+        <AnalogClock time={time} size={document.getElementsByTagName('body')[0].clientWidth/3-50} legend={this.props.legend}/>
         <div className="digital">{pad(time[0])}<span className="gray">:{pad(time[1])}</span></div>
       </div>
     );
@@ -96,7 +96,7 @@ var AnalogClock = create({
     let sec_y_contra = half + Math.sin((time[2]-15)/30*Math.PI - Math.PI) * (half*0.1);
 
     return (
-      <svg className="analog" height={size} width={size}>
+      <svg className={"analog " + this.props.legend} height={size} width={size}>
         <line x1={half} y1={half} x2={hour_x} y2={hour_y}
           stroke="black" strokeWidth="11" />
         <line x1={half} y1={half} x2={hour_x_contra} y2={hour_y_contra}

@@ -28,11 +28,23 @@ body {
   text-align: center;
 }
 
-.gray {
-  color: #999;
-}
-
 .analog {
   background: url("assets/face.svg");
   background-size: cover;
 }
+
+.Local {
+  background: url("assets/face-local.svg");
+  background-size: cover;
+}
+
+.Caribbean {
+  background: url("assets/face-caribbean.svg");
+  background-size: cover;
+}
+
+.UTC {
+  background: url("assets/face-utc.svg");
+  background-size: cover;
+}
+
