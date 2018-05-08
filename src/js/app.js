@@ -78,9 +78,8 @@ var AnalogClock = create({
     let hour_x = half + Math.cos((time[0]-3 + (time[1]/60))/6*Math.PI) * (half*0.35);
     let hour_y = half + Math.sin((time[0]-3 + (time[1]/60))/6*Math.PI) * (half*0.35);
 
-    let hour_x_contra = half + Math.cos((time[0]-3 + (time[1]/60))/6*Math.PI - Math.PI) * (half*0.2);
-    let hour_y_contra = half + Math.sin((time[0]-3 + (time[1]/60))/6*Math.PI - Math.PI) * (half*0.2);
-
+    let hour_x_contra = half + Math.cos((time[0]-3 + (time[1]/60))/6*Math.PI - Math.PI) * (half*0.1);
+    let hour_y_contra = half + Math.sin((time[0]-3 + (time[1]/60))/6*Math.PI - Math.PI) * (half*0.1);
 
     let min_x = half + Math.cos((time[1]-15 + (time[2]/60))/30*Math.PI) * (half*0.7);
     let min_y = half + Math.sin((time[1]-15 + (time[2]/60))/30*Math.PI) * (half*0.7);
