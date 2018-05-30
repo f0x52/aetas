@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const paths = {
   DIST: path.resolve(__dirname, 'dist'),
@@ -20,6 +21,11 @@ module.exports = {
       template: path.join(paths.SRC, 'index.html'),
     }),
     new ExtractTextPlugin('style.bundle.css'),
+    new CopyWebpackPlugin([{
+      from: 'config.json',
+      to: 'config.json',
+      toType: 'file'
+    }])
   ],
   module: {
     rules: [
@@ -37,7 +43,7 @@ module.exports = {
         }),
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif|svg|mp4)$/,
         use: [
           {
             loader: 'file-loader',

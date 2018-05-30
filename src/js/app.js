@@ -3,11 +3,136 @@ import ReactDOM from 'react-dom';
 import '../style.css';
 var create = require('create-react-class');
 
+const SnowStorm = require('react-snowstorm');
+
+const piday = require('../assets/event/pi.png');
+const vuurwerk = require('../assets/event/fireworks.mp4');
+const halloween = require('../assets/event/halloween.jpg');
+const sintTile = require('../assets/event/sint-tile.png');
+const kerst = require('../assets/event/kerst.png');
 
 var App = create({
+  getInitialState: function() {
+    return ({
+      json: [],
+      ping: false
+    });
+  },
+
+  componentDidMount: function() {
+    this.getSettings();
+    this.ping();
+  },
+
+  getSettings: function() {
+    fetch("config.json")
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({json: responseJson});
+      })
+      .catch(() => {
+        setTimeout(this.getSettings, 200);
+      })
+  },
+
+  ping: function() {
+    console.log("ping");
+    fetch("https://google.nl", {mode: 'no-cors'}) //CORS will be blocked by browser
+      .then((response) => {
+        if (!response.ok && response.type != "opaque") { //if blocked by CORS we're online
+          this.setState({ping: false});
+        }
+        else {
+          this.setState({ping: true});
+        }
+        console.log("pong");
+        setTimeout(this.ping, 30000) //check again in 30sec
+      })
+      .catch((error) => {
+        this.setState({ping: false});
+        setTimeout(this.ping, 5000) //check again in 5sec
+      })
+  },
+
+  getCurrentEvent: function() {
+    let date = new Date();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    // Option for json with birthdays?
+
+    if ((month == 12 && day == 31) || (month == 1 && day == 1)) { //oud&nieuw
+      return (
+        <video src={vuurwerk} id="bg" className="darken" nocontrols="true" loop="true" autoplay="true" />
+      );
+    }
+
+    if (month == 3 && day == 14) { // pi day
+      return (
+        <img src={piday} id="bg" className="darken"/>
+      );
+    }
+
+    if (month == 10 && day == 31) { // halloween
+      return (
+        <img src={halloween} id="bg"/>
+      );
+    }
+
+    if (month == 12 && day == 5) { // sinterklaas
+      return (
+        //<img src={sinterklaas} id="bg" className="darken"/>
+        <div id="bg" className="darken" style={{backgroundImage: `url(${sintTile})`}} />
+      );
+    }
+
+    if (month == 12 && (day == 23 || day == 24 || day == 25)) { // kerst
+      return (
+        <React.Fragment className="darken">
+          <img src={kerst} id="bg"/>
+          <SnowStorm snowStick={false} useTwinkleEffect={false} followMouse={false} snowCharacter="#"/>
+        </React.Fragment>
+      );
+    }
+
+    if (month == 12 && day > 15) {
+      return (
+        <SnowStorm snowStick={false} useTwinkleEffect={false} followMouse={false} snowCharacter="#"/>
+      );
+    }
+
+    return null;
+  },
+
   render: function() {
+    let clocks, ping, event, eventClass;
+    if (this.state.json != undefined) {
+      clocks = <Clocks json={this.state.json}/>;
+    }
+
+    if (!this.state.ping) {
+      ping = <div className="noping">Geen internetverbinding!<br/>Echte tijd kan afwijken van weergeven tijd</div>
+    }
+
+    let currentEvent = this.getCurrentEvent();
+    if (currentEvent != null) {
+      let content;
+      event = (
+        <div className="event">
+          {currentEvent}
+        </div>
+      );
+      eventClass = currentEvent.props.className;
+    }
+    
     return (
-      <Clocks />
+      <React.Fragment>
+        {event}
+        <div className={eventClass}>
+          {clocks}
+          {ping}
+        </div>
+      </React.Fragment>
     );
   }
 })
@@ -35,11 +160,20 @@ var Clocks = create({
   },
 
   render: function() {
+    let clocks = this.props.json.map((clock, id) => {
+      return (
+        <Clock
+          legend={clock.legend}
+          date={this.state.date}
+          offset={clock.offset}
+          key={id}
+          totalAmount={this.props.json.length}
+        />
+      );
+    });
     return (
       <div className="clocks">
-        <Clock legend="UTC" date={this.state.date}/>
-        <Clock legend="Caribbean" date={this.state.date} offset="-4"/>
-        <Clock legend="Local" date={this.state.date} offset="local"/>
+        {clocks}
       </div>
     );
   }
@@ -62,7 +196,7 @@ var Clock = create({
     return (
       <div className="clock">
         <div className="legend">{this.props.legend}</div>
-        <AnalogClock time={time} size={document.getElementsByTagName('body')[0].clientWidth/3-50} legend={this.props.legend}/>
+        <AnalogClock time={time} size={document.getElementsByTagName('body')[0].clientWidth/this.props.totalAmount-50} legend={this.props.legend}/>
         <div className="digital">{pad(time[0])}<span className="gray">:{pad(time[1])}</span></div>
       </div>
     );
