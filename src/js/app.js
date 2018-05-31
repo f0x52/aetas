@@ -6,7 +6,7 @@ var create = require('create-react-class');
 const SnowStorm = require('react-snowstorm');
 
 const piday = require('../assets/event/pi.png');
-const vuurwerk = require('../assets/event/fireworks.mp4');
+const vuurwerk = require('../assets/event/fireworks.jpg');
 const halloween = require('../assets/event/halloween.jpg');
 const sintTile = require('../assets/event/sint-tile.png');
 const kerst = require('../assets/event/kerst.png');
@@ -63,7 +63,8 @@ var App = create({
 
     if ((month == 12 && day == 31) || (month == 1 && day == 1)) { //oud&nieuw
       return (
-        <video src={vuurwerk} id="bg" className="darken" nocontrols="true" loop="true" autoplay="true" />
+        //<video src={vuurwerk} id="bg" className="darken" nocontrols="true" loop="true" autoplay="true" />
+        <img src={vuurwerk} id="bg" className="darken"/>
       );
     }
 
