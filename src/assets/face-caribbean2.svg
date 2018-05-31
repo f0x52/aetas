@@ -53,14 +53,14 @@
     </clipPath>
     <mask
        maskUnits="userSpaceOnUse"
-       id="mask980">
+       id="mask1131">
       <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:#e0e0e0;stroke-width:2.40850854;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="circle982"
-         cx="240.12048"
-         cy="222.06326"
-         r="51.91674"
-         inkscape:label="border" />
+         inkscape:label="border"
+         r="48.317451"
+         cy="246.92805"
+         cx="49.740231"
+         id="circle1133"
+         style="fill:#ffffff;fill-opacity:1;stroke:#e0e0e0;stroke-width:2.24153137;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </mask>
   </defs>
   <sodipodi:namedview
@@ -71,8 +71,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.8163646"
-     inkscape:cx="221.29076"
-     inkscape:cy="147.34246"
+     inkscape:cx="220.15661"
+     inkscape:cy="225.04516"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -118,8 +118,8 @@
        cy="247"
        r="48.5" />
     <image
-       y="158.58661"
-       x="162.31667"
+       y="189.43959"
+       x="-20.552929"
        id="image168"
        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABLcAAAP8CAYAAAC0wFwvAAAABHNCSVQICAgIfAhkiAAAIABJREFU
 eJzs3W9oJPl9P/h3V5e6Sz0lTc1sr1x7M97r/EbgwbdZtGEzNwcbseTCsjnCsoaF8wPzI4YjsYmP
@@ -1621,10 +1621,9 @@ AABJRU5ErkJggg==
 "
        style="image-rendering:optimizeQuality"
        preserveAspectRatio="none"
-       height="126.42561"
-       width="149.60362"
-       mask="url(#mask980)"
-       transform="matrix(0.93067192,0,0,0.93067192,-173.73316,40.260005)" />
+       height="112.26406"
+       width="132.84578"
+       mask="url(#mask1131)" />
     <circle
        style="fill:none;fill-opacity:1;stroke:#e0e0e0;stroke-width:2.25;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path973"
