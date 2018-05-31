@@ -133,6 +133,7 @@ var App = create({
           {clocks}
           {ping}
         </div>
+        <h1>the wired</h1>
       </React.Fragment>
     );
   }
@@ -232,18 +233,18 @@ var AnalogClock = create({
     return (
       <svg className={"analog " + this.props.legend} height={size} width={size}>
         <line x1={half} y1={half} x2={hour_x} y2={hour_y}
-          stroke="black" strokeWidth="11" />
+          stroke="#1e1e1e" strokeWidth="11" />
         <line x1={half} y1={half} x2={hour_x_contra} y2={hour_y_contra}
-          stroke="black" strokeWidth="10" />
+          stroke="#1e1e1e" strokeWidth="10" />
         <circle cx={hour_x} cy={hour_y}
-          r={4} stroke="black" fill="black" />
+          r={4} stroke="#1e1e1e" fill="#1e1e1e" />
 
         <line x1={half} y1={half} x2={min_x} y2={min_y}
-          stroke="black" strokeWidth="10" />
+          stroke="#1e1e1e" strokeWidth="10" />
         <line x1={half} y1={half} x2={min_x_contra} y2={min_y_contra}
-          stroke="black" strokeWidth="10" />
+          stroke="#1e1e1e" strokeWidth="10" />
         <circle cx={min_x} cy={min_y}
-          r={4} stroke="black" fill="black" />
+          r={4} stroke="#1e1e1e" fill="#1e1e1e" />
 
         <line x1={half} y1={half} x2={sec_x} y2={sec_y}
           stroke="red" strokeWidth="4" />
@@ -252,7 +253,7 @@ var AnalogClock = create({
         <circle cx={sec_x} cy={sec_y}
           r={1.5} stroke="red" fill="red" />
 
-        <circle cx={half} cy={half} r={12} stroke="black" fill="black" />
+        <circle cx={half} cy={half} r={12} stroke="#1e1e1e" fill="#1e1e1e" />
       </svg>
     );
   }
