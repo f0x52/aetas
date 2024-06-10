@@ -1,3 +1,5 @@
+/* from src/style.css */
+
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
@@ -55,7 +57,8 @@ h1 {
   z-index: -5;
   width: 100vw;
   height: 100vh;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .clock-container {
@@ -74,13 +77,13 @@ h1 {
   align-items: center;
   position: relative;
   gap: 1rem;
+}
 
-  .analog {
+.clock .analog {
     position: relative;
     aspect-ratio: 1/1;
     width: 100%;
   }
-}
 
 .legend, .digital {
   text-align: center;
@@ -88,11 +91,11 @@ h1 {
   line-height: 6rem;
   border-radius: 0.8rem;
   padding: 0.8rem;
+}
 
-  .darken & {
+.darken .legend, .darken .digital {
     background: #191919;
   }
-}
 
 .analog {
   background: url("/clockfaces/face.svg");
@@ -118,4 +121,7 @@ h1 {
   background: url("/clockfaces/face-met.svg");
   background-size: cover;
 }
+
+
+
 
