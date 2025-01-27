@@ -23,11 +23,13 @@
     "postcss-nested": "^6.0.1"
   },
   "dependencies": {
+    "@babel/core": "^7.26.7",
     "date-easter": "^1.0.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-snowfall": "^2.1.0",
     "react-snowstorm": "^0.0.3",
+    "s-ago": "^2.2.0",
     "skulk": "^0.0.9"
   }
 }

@@ -31,6 +31,7 @@ h1 {
   font-family: 'Roboto Slab';
   font-size: 2.6rem;
   line-height: 2.6rem;
+  font-weight: bold;
   position: fixed;
   padding: 20px;
   margin: 0;
@@ -39,6 +40,45 @@ h1 {
   background-color: #1e1e1e;
   border-top-left-radius: 0.8rem;
 }
+
+.network {
+  color: #8a8a8a;
+  fill: #aaaaaa;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0.6rem;
+}
+
+.network div {
+    display: flex;
+    gap: 0.6rem;
+    line-height: 1.3rem;
+  }
+
+.network div svg {
+      height: 1.3rem;
+      width: 1.3rem;
+    }
+
+.network div.error {
+      --reduced: #999;
+      color: var(--reduced);
+      line-height: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+.network div.error svg {
+        height: 1.5rem;
+        width: 1.5rem;
+        fill: var(--reduced);
+      }
+
+.network div.error svg #red {
+          stroke: #f80d0d;
+          transform-origin: center;
+          transform: scale(1.6);
+        }
 
 .noping {
   background-color: #7d2c2c;
